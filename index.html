@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fords Stock Brokers | Market Intelligence</title>
+
+<style>
+:root {
+    --navy: #091827;
+    --panel: #122438;
+    --green: #28d99a;
+    --text: #edf4fb;
+    --muted: #9cafc2;
+    --border: #263b50;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.6;
+}
+a { color: var(--green); text-decoration: none; }
+header {
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+.logo { font-size: 22px; font-weight: bold; }
+.logo span { color: var(--green); }
+nav { display: flex; flex-wrap: wrap; gap: 17px; }
+nav a { color: var(--text); font-size: 14px; }
+
+.hero {
+    padding: 55px 5%;
+    background: linear-gradient(120deg, #102c43, #091827);
+}
+.eyebrow {
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: bold;
+}
+h1 { font-size: clamp(30px, 5vw, 48px); margin: 12px 0; }
+.hero p { max-width: 650px; color: var(--muted); }
+.btn {
+    display: inline-block;
+    background: var(--green);
+    color: #061a19;
+    padding: 11px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+main { width: 92%; max-width: 1200px; margin: 35px auto; }
+.section { margin-bottom: 42px; }
+.section h2 { font-size: 25px; margin-bottom: 8px; }
+.description { color: var(--muted); margin-bottom: 20px; }
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 38px;
+}
+.panel, .stat, .stock-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 19px;
+}
+.stat p { color: var(--muted); font-size: 13px; }
+.stat strong { display: block; font-size: 23px; margin-top: 7px; }
+
+.notice {
+    background: #332b19;
+    border: 1px solid #705a29;
+    color: #ffe4a3;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+    margin: 16px 0;
+}
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0;
+}
+input, select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    font-size: 15px;
+}
+input { flex: 1; min-width: 180px; }
+select { max-width: 100%; }
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: var(--panel);
+}
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+th { color: var(--muted); font-size: 12px; text-transform: uppercase; }
+td a { font-weight: bold; }
+.status { color: #ffd477; }
+.stock-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+.stock-card h3 { margin-bottom: 4px; }
+.stock-card p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+.ticker { color: var(--green); font-size: 13px; font-weight: bold; }
+.stock-card .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; font-size: 13px; }
+footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 5%;
+    color: var(--muted);
+    text-align: center;
+    font-size: 13px;
+}
+footer p { margin: 6px; }
+.hidden { display: none !important; }
+
+@media (max-width: 600px) {
+    header { align-items: flex-start; flex-direction: column; }
+    nav { gap: 12px; }
+    .hero { padding: 38px 5%; }
+}
+</style>
+</head>
+
+<body>
+<header>
+    <div class="logo">FORDS <span>STOCK BROKERS</span></div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#prices">Stock Prices</a>
+        <a href="#famous">Famous Stocks</a>
+        <a href="#history">Market History</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="eyebrow">Market intelligence and research</div>
+    <h1>Understand the market.<br>Research every opportunity.</h1>
+    <p>
+        Explore leading public companies, monitor market data when
+        connected, and learn important lessons from historic corporate
+        failures.
+    </p>
+    <a class="btn" href="#prices">Explore Stock Prices</a>
+</section>
+
+<main>
+    <section class="stats">
+        <div class="stat">
+            <p>Companies in our watchlist</p>
+            <strong>15</strong>
+        </div>
+        <div class="stat">
+            <p>Historical case studies</p>
+            <strong>15</strong>
+        </div>
+        <div class="stat">
+            <p>Market data connection</p>
+            <strong style="color:#ffd477">Pending</strong>
+        </div>
+    </section>
+
+    <section class="section" id="prices">
+        <h2>Stock Market Watchlist</h2>
+        <p class="description">
+            Follow selected companies and open their market research pages.
+        </p>
+
+        <div class="notice" id="priceNotice">
+            DEMO MODE — Live prices are not connected yet.
+            No prices below are being presented as real-time quotes.
+        </div>
+
+        <div class="toolbar">
+            <input id="search" type="search"
+                placeholder="Search stocks by name or ticker..."
+                aria-label="Search stock table">
+            <select id="marketFilter" aria-label="Filter stock list">
+                <option value="all">All companies</option>
+                <option value="technology">Technology</option>
+                <option value="finance">Finance</option>
+                <option value="consumer">Consumer</option>
+                <option value="health">Healthcare</option>
+            </select>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Ticker</th>
+                        <th>Latest price</th>
+                        <th>Daily change</th>
+                        <th>Research</th>
+                    </tr>
+                </thead>
+                <tbody id="priceRows">
+                    <tr data-name="Apple" data-ticker="AAPL" data-sector="technology">
+                        <td>Apple</td><td>AAPL</td>
+                        <td class="status">Awaiting API</td>
+                        <td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/AAPL/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Microsoft" data-ticker="MSFT" data-sector="technology">
+                        <td>Microsoft</td><td>MSFT</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/MSFT/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="NVIDIA" data-ticker="NVDA" data-sector="technology">
+                        <td>NVIDIA</td><td>NVDA</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/NVDA/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Amazon" data-ticker="AMZN" data-sector="consumer">
+                        <td>Amazon</td><td>AMZN</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/AMZN/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Alphabet" data-ticker="GOOGL" data-sector="technology">
+                        <td>Alphabet</td><td>GOOGL</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/GOOGL/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Meta Platforms" data-ticker="META" data-sector="technology">
+                        <td>Meta Platforms</td><td>META</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/META/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Tesla" data-ticker="TSLA" data-sector="consumer">
+                        <td>Tesla</td><td>TSLA</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/TSLA/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Berkshire Hathaway" data-ticker="BRK.B" data-sector="finance">
+                        <td>Berkshire Hathaway B</td><td>BRK.B</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/BRK-B/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="JPMorgan Chase" data-ticker="JPM" data-sector="finance">
+                        <td>JPMorgan Chase</td><td>JPM</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/JPM/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Walmart" data-ticker="WMT" data-sector="consumer">
+                        <td>Walmart</td><td>WMT</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/WMT/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Visa" data-ticker="V" data-sector="finance">
+                        <td>Visa</td><td>V</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/V/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Coca-Cola" data-ticker="KO" data-sector="consumer">
+                        <td>Coca-Cola</td><td>KO</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/KO/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Netflix" data-ticker="NFLX" data-sector="technology">
+                        <td>Netflix</td><td>NFLX</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/NFLX/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="AMD" data-ticker="AMD" data-sector="technology">
+                        <td>AMD</td><td>AMD</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/AMD/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                    <tr data-name="Eli Lilly" data-ticker="LLY" data-sector="health">
+                        <td>Eli Lilly</td><td>LLY</td>
+                        <td class="status">Awaiting API</td><td>—</td>
+                        <td><a href="https://finance.yahoo.com/quote/LLY/" target="_blank" rel="noopener">View ↗</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section" id="famous">
+        <h2>Famous Stocks</h2>
+        <p class="description">
+            Established market names. Popularity does not guarantee returns.
+        </p>
+        <div class="stock-grid">
+            <article class="stock-card">
+                <h3>Apple Inc.</h3><span class="ticker">NASDAQ: AAPL</span>
+                <p>Consumer electronics and technology.</p>
+                <div class="links">
+                    <a href="https://investor.apple.com/" target="_blank" rel="noopener">Investor relations ↗</a>
+                    <a href="https://finance.yahoo.com/quote/AAPL/" target="_blank" rel="noopener">Market data ↗</a>
+                </div>
+            </article>
+            <article class="stock-card">
+                <h3>Microsoft</h3><span class="ticker">NASDAQ: MSFT</span>
+                <p>Software, cloud computing and AI.</p>
+                <div class="links">
+                    <a href="https://www.microsoft.com/en-us/Investor/" target="_blank" rel="noopener">Investor relations ↗</a>
+                    <a href="https://finance.yahoo.com/quote/MSFT/" target="_blank" rel="noopener">Market data ↗</a>
+                </div>
+            </article>
+            <article class="stock-card">
+                <h3>NVIDIA</h3><span class="ticker">NASDAQ: NVDA</span>
+                <p>Graphics processors and AI computing.</p>
+                <div class="links">
+                    <a href="https://investor.nvidia.com/" target="_blank" rel="noopener">Investor relations ↗</a>
+                    <a href="https://finance.yahoo.com/quote/NVDA/" target="_blank" rel="noopener">Market data ↗</a>
+                </div>
+            </article>
+            <article class="stock-card">
+                <h3>Amazon</h3><span class="ticker">NASDAQ: AMZN</span>
+                <p>Online retail and cloud services.</p>
+                <div class="links">
+                    <a href="https://ir.aboutamazon.com/" target="_blank" rel="noopener">Investor relations ↗</a>
+                    <a href="https://finance.yahoo.com/quote/AMZN/" target="_blank" rel="noopener">Market data ↗</a>
+                </div>
+            </article>
+        </div>
+        <p class="description" style="margin-top:14px">
+            Use the watchlist above to search all 15 companies.
+        </p>
+    </section>
+
+    <section class="section" id="history">
+        <h2>Historic Market Failures</h2>
+        <p class="description">
+            Study corporate collapses and scandals to understand business
+            risk, accounting controls, and investor due diligence.
+        </p>
+        <div class="stock-grid">
+            <article class="stock-card">
+                <h3>Enron</h3>
+                <span class="ticker">Historic case · 2001</span>
+                <p>Accounting fraud and corporate governance failures.</p>
+                <div class="links">
+                    <a href="https://www.sec.gov/" target="_blank" rel="noopener">SEC resources ↗</a>
+                </div>
+            </article>
+            <article class="stock-card">
+                <h3>WorldCom</h3>
+                <span class="ticker">Historic case · 2002</span>
+                <p>Accounting fraud at a major telecommunications company.</p>
+                <div class="links">
+                    <a href="https://www.sec.gov/" target="_blank" rel="noopener">SEC resources ↗</a>
+                </div>
+            </article>
+            <article class="stock-card">
+                <h3>Lehman Brothers</h3>
+                <span class="ticker">Historic case · 2008</span>
+                <p>Investment bank bankruptcy during the financial crisis.</p>
+                <div class="links">
+                    <a href="https://www.sec.gov/" target="_blank" rel="noopener">SEC resources ↗</a>
+                </div>
+            </article>
+            <article class="stock-card">
+                <h3>Wirecard</h3>
+                <span class="ticker">Historic case · 2020</span>
+                <p>Payments company collapse following an accounting scandal.</p>
+                <div class="links">
+                    <a href="https://www.bafin.de/EN/Homepage/homepage_node.html" target="_blank" rel="noopener">BaFin regulator ↗</a>
+                </div>
+            </article>
+        </div>
+        <p class="description" style="margin-top:14px">
+            The earlier list contains 15 historical cases. Some companies
+            restructured, changed names, or were delisted; not all are
+            currently tradable.
+        </p>
+    </section>
+
+    <section class="section panel" id="about">
+        <h2>About Fords Stock Brokers</h2>
+        <p class="description">
+            Fords Stock Brokers is being developed as a financial
+            information and stock-market education website.
+            External links lead to third-party research resources.
+        </p>
+        <p class="description">
+            This demo is not a licensed brokerage service. It does not
+            execute trades, hold customer funds, or provide personalized
+            investment advice.
+        </p>
+        <p><a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">
+            Search official company filings ↗
+        </a></p>
+    </section>
+</main>
+
+<footer>
+    <p><strong>FORDS STOCK BROKERS</strong></p>
+    <p>Research carefully. Understand risk. Make informed decisions.</p>
+    <p>Market data integration pending. Prices are not live in this demo.</p>
+    <p>&copy; 2026 Fords Stock Brokers</p>
+</footer>
+
+<script>
+const search = document.getElementById("search");
+const marketFilter = document.getElementById("marketFilter");
+const rows = document.querySelectorAll("#priceRows tr");
+
+function filterRows() {
+    const query = search.value.toLowerCase().trim();
+    const sector = marketFilter.value;
+
+    rows.forEach(row => {
+        const text = (
+            row.dataset.name + " " + row.dataset.ticker
+        ).toLowerCase();
+
+        const matchesSearch = text.includes(query);
+        const matchesSector =
+            sector === "all" || row.dataset.sector === sector;
+
+        row.classList.toggle(
+            "hidden",
+            !(matchesSearch && matchesSector)
+        );
+    });
+}
+
+search.addEventListener("input", filterRows);
+marketFilter.addEventListener("change", filterRows);
+</script>
+</body>
+</html>
